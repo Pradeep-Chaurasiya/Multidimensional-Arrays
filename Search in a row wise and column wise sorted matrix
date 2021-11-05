@@ -1,0 +1,32 @@
+public class Solution {
+    public int solve(int[][] A, int B) {
+        
+        // for(int i=0; i<A.length; i++)  // BF
+        // {
+        //     for(int j=0; j<A[0].length; j++)
+        //     {
+        //         if(A[i][j] == B)
+        //         {
+        //             return (i+1)*1009+(j+1);
+        //         }
+        //     }
+        // }
+        
+        // return -1;
+        
+        int row = 0;
+        for(int i=0; i<A.length; i++){
+            if(A[i][A[0].length-1]>=B){
+                row = i;
+                break;
+            }
+        }
+        
+        for(int i=0; i<A[0].length; i++){
+            if(A[row][i] == B){
+                return (row+1)*1009+(i+1);
+            }
+        }
+        return -1;
+    }
+}
