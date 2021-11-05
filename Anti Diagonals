@@ -1,0 +1,36 @@
+public class Solution {
+    public int[][] diagonal(int[][] A) {
+       
+      int n = A.length;
+      int anti[][] = new int[2*n-1][n];
+
+        for(int i=0; i<n; i++){
+          int j = i;
+          int k = 0;
+          
+          while(j>=0){
+              anti[i][k] = A[k][j];
+              k = k+1;
+              j = j-1;
+            
+          }
+        
+        }
+
+        for(int i=1; i<n; i++){
+          int k = i;
+          int p = 0;
+          int j = n-1;
+           
+            while(k<=n-1){
+            anti[n+i-1][p] = A[k][j];
+              j = j-1;
+              k = k+1;
+              p = p+1;
+            }
+       
+        }
+      
+      return anti;
+    }
+}
