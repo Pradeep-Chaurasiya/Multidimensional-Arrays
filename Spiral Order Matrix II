@@ -1,0 +1,36 @@
+public class Solution {
+    public int[][] generateMatrix(int A) {
+
+        int matrix[][] = new int[A][A];
+        int T = 0, B = A-1, L = 0, R = A-1;
+        int count = 1;
+        
+        while(L<=R && T<=B)
+        {
+            for(int i=L; i<=R; i++)
+            {
+               matrix[T][i] = count++;
+            }
+            T++;
+            
+            for(int i=T; i<=B; i++)
+            {
+                matrix[i][R] =count++;
+            }
+            R--;
+            
+            for(int i=R; i>=L; i--)
+            {
+                matrix[B][i] = count++;
+            }
+            B--;
+            
+            for(int i=B; i>=T; i--)
+            {
+                matrix[i][L] = count++;
+            }
+            L++;
+        }
+        return matrix;
+    }
+}
